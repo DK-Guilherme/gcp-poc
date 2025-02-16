@@ -2,6 +2,10 @@ from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 
+from app.server.service.products_service import (
+    find_all_products
+)
+
 router = APIRouter()
 
 menu = [
@@ -27,11 +31,14 @@ menu = [
 ]
 
 @router.get("", response_description="Return all products")
-def find_all_products():
+def getall_products():
     try:
-        return JSONResponse(status_code=200, content=jsonable_encoder(menu))
-    except:
-        return {"Error": "COULD NOT COMPLETE THE REQUEST"}
+        products = find_all_products()
+        print(products)
+        return JSONResponse(status_code=200, content=jsonable_encoder(products))
+    except () as e:
+        print(e)
+        return {"Error": f"COULD NOT COMPLETE THE REQUEST"}
     
 @router.get("/{id}", response_description="Return a product per ID")
 def find_product_by_id(id: int):
@@ -39,5 +46,5 @@ def find_product_by_id(id: int):
         for product in menu:
             if product['id'] == id:
                 return JSONResponse(status_code=200, content=product)
-    except:
+    except () as e:
         return {"Error": "Could not find product with the given ID"}
