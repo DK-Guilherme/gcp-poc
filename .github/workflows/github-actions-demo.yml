@@ -23,4 +23,4 @@ jobs:
         env:
           GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
         run: |
-          echo "THE GCP ID is $GCP_PROJECT_ID"
+          echo "THE GCP ID is ${GCP_PROJECT_ID}"
