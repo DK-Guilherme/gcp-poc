@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: gcp-poc-products
+  version: 0.1.0
+paths:
+  "/hello":
+    get:
+      summary: Hello World
+      operationId: hello_world_hello_get
+      responses:
+        '200':
+          description: Successful Response
+          content: 
+            application/json:
+              schema: {}
+  "/products":
+    get:
+      tags:
+      - Products
+      summary: Getall Products
+      operationId: getall_products_products_get
+      responses:
+        '200':
+          description: Return all products
+          content:
+            application/json:
+              schema: {}
+  "/products/{id}":
+    get:
+      tags:
+      - Products
+      summary: Find Product By Id
+      operationId: find_product_by_id_products__id__get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: Id
+      responses:
+        '200':
+          description: Return a product per ID
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
