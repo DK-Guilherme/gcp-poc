@@ -21,6 +21,6 @@ jobs:
     steps:
       - name: Retrieve secret
         env:
-          secret: ${{ secrets.GCP_PROJECT_ID }}
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
         run: |
-          echo "THE GCP ID is ${{secret}}"
+          echo "THE GCP ID is $GCP_PROJECT_ID"
