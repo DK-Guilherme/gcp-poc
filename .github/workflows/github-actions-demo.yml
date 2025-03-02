@@ -16,3 +16,11 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+    retrieve-env-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve secret
+        env:
+          super_secret: ${{ secrets.GCP_PROJECT_ID }}
+        run: |
+          example-command "$super_secret"
