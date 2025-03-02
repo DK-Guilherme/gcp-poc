@@ -16,7 +16,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-    retrieve-env-variables:
+  Retrieve-env-variables:
     runs-on: ubuntu-latest
     steps:
       - name: Retrieve secret
