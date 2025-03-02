@@ -25,6 +25,7 @@ jobs:
         run: |
           echo "THE GCP ID is ${GCP_PROJECT_ID}"
   GCP-connect:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
